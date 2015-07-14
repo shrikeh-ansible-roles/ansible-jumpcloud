@@ -6,11 +6,11 @@
 
 - name:   Update time
   command:  'ntpdate -u pool.ntp.org'
-  when: not jc_installed.stat.isdir || jumpcloud_force_install
+  when: not jc_installed.stat.isdir or jumpcloud_force_install
 
 - name: Install JumpCloud
   shell: "curl --header 'x-connect-key: {{ jumpcloud_x_connect_key | mandatory }}' {{ jumpcloud_x_connect_url | mandatory }} | sudo bash"
-  when: not jc_installed.stat.isdir || jumpcloud_force_install
+  when: not jc_installed.stat.isdir or jumpcloud_force_install
   notify:
     - restart JumpCloud
 ...
