@@ -4,7 +4,7 @@ test_role() {
   local ANSIBLE_
   local ANSIBLE_INSTALLER_URI='https://raw.githubusercontent.com/shrikeh/ansible-virtualenv/master/init.sh';
   local ANSIBLE_VENV='.venv';
-  local ANSIBLE_VERSION='v1.9.2-1';
+  local ANSIBLE_VERSION='devel';
   local ANSIBLE_CHECKOUT_PATH='./.ansible';
   local ANSIBLE_ROLES_FILE='./requirements.yml';
   local ANSIBLE_INVENTORY_FILE='./inventory';
