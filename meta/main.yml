@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: "shrikeh"
+  description: "Install JumpCloud (https://jumpcloud.com) Active Directory and LDAP agent"
+  company: "B H Hanlon Ventures Ltd"
+  min_ansible_version: 1.5
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+  categories:
+    - authentication
+    - monitoring
+    - networking
+
+dependencies: []
+...
