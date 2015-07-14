@@ -1,0 +1,6 @@
+---
+- name: restart JumpCloud
+  service:
+    name:  jcagent
+    state: restarted
+...

@@ -1,0 +1,5 @@
+---
+jumpcloud_directory: /opt/jc
+jumpcloud_x_connect_url: 'https://kickstart.jumpcloud.com/Kickstart'
+jumpcloud_force_install: no
+...
