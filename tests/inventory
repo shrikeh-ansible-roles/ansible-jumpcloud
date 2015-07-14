@@ -1,2 +1,2 @@
 [vm]
-jumpcloud-test
+jumpcloud-test ansible_remote_user=vagrant

@@ -3,8 +3,19 @@ galaxy_info:
   author: "shrikeh"
   description: "Install JumpCloud (https://jumpcloud.com) Active Directory and LDAP agent"
   company: "B H Hanlon Ventures Ltd"
+  license: MIT
   min_ansible_version: 1.5
   platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - 22
+    - name: Debian
+      versions:
+        - all
     - name: Ubuntu
       versions:
         - precise
