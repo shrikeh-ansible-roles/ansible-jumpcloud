@@ -1,4 +1,2 @@
 [vm]
 jumpcloud-test
-tests/.vagrant
-!.gitignore

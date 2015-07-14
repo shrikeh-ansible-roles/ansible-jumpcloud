@@ -1,0 +1,3 @@
+---
+- src: 'https://github.com/shrikeh/ansible-jumpcloud.git'
+...
