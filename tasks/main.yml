@@ -1,20 +1,15 @@
 ---
-- name: Check if JumpCloud folder exists
+- name:       Check if JumpCloud folder exists
   stat:
-    path:   "{{ jumpcloud_directory }}"
-  register: jumpcloud_directory_stat
+    path:     "{{ jumpcloud_directory }}"
+  register:   jumpcloud_directory_stat
 
-- name: Determine if JumpCloud is already installed
+- name:       Determine if JumpCloud is already installed
   set_fact:
     jc_installed: "{{ (jumpcloud_directory_stat.stat.isdir is defined and jumpcloud_directory_stat.stat.isdir) }}"
 
-- name:     Update time
-  command:  'ntpdate -u pool.ntp.org'
-  when:     jc_installed != true
+- name:       Install JumpCloud if required
+  include:    install.yml
+  when:       jc_installed != true or jumpcloud_force_install
 
-- name:     Install JumpCloud
-  shell:    "curl --header 'x-connect-key: {{ jumpcloud_x_connect_key | mandatory }}' {{ jumpcloud_x_connect_url | mandatory }} | sudo bash"
-  when:     jc_installed != true or jumpcloud_force_install
-  notify:
-    - restart JumpCloud
 ...

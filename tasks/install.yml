@@ -1,0 +1,32 @@
+---
+- name:     Update time
+  command:  'ntpdate -u pool.ntp.org'
+
+- name:     Ensure temp directory exists
+  file:
+    path:  "{{ jumpcloud_temp_directory }}"
+    state:  directory
+    owner:  root
+    group:  root
+
+- name:     Install JumpCloud
+  uri:
+    url: "{{ jumpcloud_x_connect_url | mandatory }}"
+    HEADER_x-connect-key: "{{ jumpcloud_x_connect_key | mandatory }}"
+    dest: "{{ jumpcloud_temp_directory }}/{{ jumpcloud_temp_install_file }}"
+
+- name:     Make the install script executable
+  file:
+    path:  "{{ jumpcloud_temp_directory }}/{{ jumpcloud_temp_install_file }}"
+    owner:  "{{ jumpcloud_install_script_owner }}"
+    group:  "{{ jumpcloud_install_script_group }}"
+    mode:   'u+x'
+
+- name:     Execute this via bash
+  command: "./{{ jumpcloud_temp_install_file }}"
+  args:
+    chdir: "{{ jumpcloud_temp_directory }}"
+    executable: "{{ jumpcloud_bash_executable }}"
+  notify:
+    - restart JumpCloud
+...

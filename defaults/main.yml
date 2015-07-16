@@ -1,4 +1,9 @@
 ---
+jumpcloud_temp_directory: '/tmp/jc_install'
+jumpcloud_temp_install_file: 'install.sh'
+jumpcloud_bash_executable: '/usr/bin/bash'
+jumpcloud_install_script_owner: 'root'
+jumpcloud_install_script_group: 'root'
 jumpcloud_directory: /opt/jc
 jumpcloud_x_connect_url: 'https://kickstart.jumpcloud.com/Kickstart'
 jumpcloud_force_install: no
