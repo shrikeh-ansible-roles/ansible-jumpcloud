@@ -1,2 +1,2 @@
 [local]
-localhost ansible_python_interpreter=python ansible_connection=local
+jumpcloud-test ansible_python_interpreter=python
