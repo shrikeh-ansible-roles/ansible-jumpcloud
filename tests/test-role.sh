@@ -21,8 +21,7 @@ test_role() {
     --use-pip-version \
   ;
 
-  ( export ANSIBLE_ROLES_PATH=${ANSIBLE_ROLES_LOCAL_PATH}; \
-    ansible-playbook -i "${ANSIBLE_INVENTORY_FILE}" \
+  ( ansible-playbook -i "${ANSIBLE_INVENTORY_FILE}" \
     "${ANSIBLE_PLAYBOOK}" \
     -u "$JUMPCLOUD_TEST_REMOTE_USER" \
     -vvvv \

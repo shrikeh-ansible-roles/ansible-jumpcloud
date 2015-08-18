@@ -7,9 +7,8 @@
 
 - name:       Determine if JumpCloud is already installed
   set_fact:
-    jc_installed: "{{ (jumpcloud_directory_stat.stat.isdir is defined and jumpcloud_directory_stat.stat.isdir) }}"
+    jc_not_installed: "{{ not (jumpcloud_directory_stat.stat.isdir is defined and jumpcloud_directory_stat.stat.isdir) }}"
 
 - name:       Install JumpCloud if required
   include:    install.yml
-  when:       not jc_installed or jumpcloud_force_install
-...
+  when:       jc_not_installed or jumpcloud_force_install
