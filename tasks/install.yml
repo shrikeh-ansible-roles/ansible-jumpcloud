@@ -1,32 +1,41 @@
+%YAML 1.2
 ---
-- name:     Update time
-  command:  'ntpdate -u pool.ntp.org'
+- name:     Get the install script
+  uri:
+    url: "{{ jumpcloud_x_connect_url | mandatory }}"
+    HEADER_x-connect-key: "{{ jumpcloud_x_connect_key | mandatory }}"
+    return_content: yes
+  delegate_to: 127.0.0.1
+  run_once: true
+  register: jumpcloud_install_script
+  when: not jumpcloud_install_script_contents is defined
+
+- name: Register the install script output as a variable
+  set_fact:
+    jumpcloud_install_script_contents: "{{ jumpcloud_install_script.content }}"
+  when: not jumpcloud_install_script_contents is defined
 
 - name:     Ensure temp directory exists
   file:
     path:  "{{ jumpcloud_temp_directory }}"
     state:  directory
-    owner:  root
-    group:  root
-
-- name:     Install JumpCloud
-  uri:
-    url: "{{ jumpcloud_x_connect_url | mandatory }}"
-    HEADER_x-connect-key: "{{ jumpcloud_x_connect_key | mandatory }}"
-    dest: "{{ jumpcloud_temp_directory }}/{{ jumpcloud_temp_install_file }}"
-
-- name:     Make the install script executable
-  file:
-    path:  "{{ jumpcloud_temp_directory }}/{{ jumpcloud_temp_install_file }}"
     owner:  "{{ jumpcloud_install_script_owner }}"
     group:  "{{ jumpcloud_install_script_group }}"
-    mode:   'u+x'
+    mode:   "{{ jumpcloud_temp_directory_mode }}"
+  sudo: "{{ jumpcloud_use_sudo }}"
 
-- name:     Execute this via bash
+- name: Copy the string into position
+  template:
+    src:      "{{ jumpcloud_template_path }}"
+    dest:     "{{ jumpcloud_temp_directory }}/{{ jumpcloud_temp_install_file }}"
+    owner:    "{{ jumpcloud_install_script_owner }}"
+    group:    "{{ jumpcloud_install_script_group }}"
+    mode:     "{{ jumpcloud_install_script_mode }}"
+
+- name:     Execute this via the shell
   command: "./{{ jumpcloud_temp_install_file }}"
   args:
     chdir: "{{ jumpcloud_temp_directory }}"
-    executable: "{{ jumpcloud_bash_executable }}"
   notify:
     - restart JumpCloud
 ...

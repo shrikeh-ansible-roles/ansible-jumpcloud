@@ -1,6 +1,7 @@
+%YAML 1.2
 ---
 - name: restart JumpCloud
   service:
-    name:  jcagent
+    name:  "{{ jumpcloud_agent_service }}"
     state: restarted
 ...

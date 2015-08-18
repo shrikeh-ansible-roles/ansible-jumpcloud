@@ -1,3 +1,4 @@
+%YAML 1.2
 ---
 - name:       Check if JumpCloud folder exists
   stat:
@@ -10,6 +11,5 @@
 
 - name:       Install JumpCloud if required
   include:    install.yml
-  when:       jc_installed != true or jumpcloud_force_install
-
+  when:       not jc_installed or jumpcloud_force_install
 ...
