@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 test_role() {
-  local ANSIBLE_
+
   local ANSIBLE_INSTALLER_URI='https://raw.githubusercontent.com/shrikeh/ansible-virtualenv/master/init.sh';
   local ANSIBLE_VENV='.venv';
   local ANSIBLE_VERSION='v1.9.2-1';
@@ -20,7 +20,6 @@ test_role() {
     --venv "${ANSIBLE_VENV}" \
     --use-pip-version \
   ;
-  pip install httplib2;
 
   ( export ANSIBLE_ROLES_PATH=${ANSIBLE_ROLES_LOCAL_PATH}; \
     ansible-playbook -i "${ANSIBLE_INVENTORY_FILE}" \
