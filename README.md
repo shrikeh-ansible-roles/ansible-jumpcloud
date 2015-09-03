@@ -32,17 +32,17 @@ Default: `root`
 
 Owner of the install script.
 
-### `jumpcloud_install_script_group`
+### [`jumpcloud_install_script_group`][jc-install-script-group]
 Default: `root`
 
 Group of the install script.
 
-### `jumpcloud_directory`
+### [`jumpcloud_directory`][jc-directory]
 Default: `/opt/jc`
 
 Path to check if JumpCloud has been previously installed.
 
-### `jumpcloud_x_connect_url`
+### [`jumpcloud_x_connect_url`][jc-x-connect-url]
 Default: 'https://kickstart.jumpcloud.com/Kickstart'
 
 URL for the install script.
@@ -68,9 +68,13 @@ Default: `no`
 Whether or not to use sudo during installation.
 
 [jumpcloud]: 				https://jumpcloud.com "JumpCloud website"
-[jc-x-connect-key]:  		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4
-[jc-temp-directory]: 		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4
-[jc-temp-directory-mode]: 	https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L5
-[jc-temp-install-file]:		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L6
-[jc-install-script-mode]:	https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L7
-[jc-install-script-owner]: https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L9
+[jc-x-connect-key]:  		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
+[jc-temp-directory]: 		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
+[jc-temp-directory-mode]: 	https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L5 "Link to variable on master"
+[jc-temp-install-file]:		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L6 "Link to variable on master"
+[jc-install-script-mode]:	https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L7 "Link to variable on master"
+[jc-install-script-owner]: https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L9 "Link to variable on master"
+[jc-install-script-group]: https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L10 "Link to variable on master"
+[jc-directory]: 			https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L12 "Link to variable on master"
+[jc-x-connect-url]: 		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L13 "Link to variable on master"
+
