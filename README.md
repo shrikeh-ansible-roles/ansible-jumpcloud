@@ -1,7 +1,13 @@
 # JumpCloud Role for Ansible
+=========
 This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts the JumpCloud service.
 
-## Variables
+## Requirements
+------------
+NTP should be installed.
+
+## Role Variables
+------------
 
 #### [`jumpcloud_x_connect_key`][jc-x-connect-key]
 Default: none
@@ -67,7 +73,26 @@ Default: `no`
 
 Whether or not to use sudo during installation.
 
-[jumpcloud]: 				https://jumpcloud.com "JumpCloud website"
+## Example Playbook
+----------------
+
+```YAML
+- hosts: servers
+  roles:
+     - { role: shrikeh.jumpcloud, jumpcloud_x_connect_key: 'abcdef012234343' }
+```
+
+## License
+-------
+
+[MIT][licence]
+
+## Author Information
+------------------
+Contact me on Twitter @[barney_hanlon][twitter]
+
+
+[jumpcloud]: 				    https://jumpcloud.com "JumpCloud website"
 [jc-x-connect-key]:  		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
 [jc-temp-directory]: 		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
 [jc-temp-directory-mode]: 	https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L5 "Link to variable on master"
@@ -81,3 +106,4 @@ Whether or not to use sudo during installation.
 [jc-force-install]:			https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L17 "Link to variable on master"
 [jc-agent-service]:			https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L18 "Link to variable on master"
 [jc-use-sudo]:				https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L19 "Link to variable on master"
+[licence]:			https://raw.githubusercontent.com/shrikeh/ansible-jumpcloud/master/LICENSE
