@@ -4,7 +4,7 @@ This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts th
 
 ## Requirements
 ------------
-NTP should be installed.
+[cURL][curl] and NTP should be installed as prerequisites.
 
 ## Role Variables
 ------------
@@ -91,7 +91,7 @@ Whether or not to use sudo during installation.
 ------------------
 Contact me on Twitter @[barney_hanlon][twitter]
 
-
+[curl]:                 https://galaxy.ansible.com/list#/roles/4384
 [jumpcloud]: 				    https://jumpcloud.com "JumpCloud website"
 [jc-x-connect-key]:  		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
 [jc-temp-directory]: 		https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
