@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 # Temporary directory to download the install script into
 jumpcloud_temp_directory: '/tmp/jc_install'

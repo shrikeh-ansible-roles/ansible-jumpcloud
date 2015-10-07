@@ -1,4 +1,3 @@
-%YAML 1.2
 ---
 - name:       Check if JumpCloud folder exists
   stat:
