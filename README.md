@@ -1,6 +1,10 @@
 # JumpCloud Role for Ansible
 ------------
-This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts the JumpCloud service.
+
+[![Ansible Role](https://img.shields.io/ansible/role/4378.svg)](https://galaxy.ansible.com/detail#/role/4378)
+[![Build Status](https://travis-ci.org/shrikeh/ansible-jumpcloud.svg)](https://travis-ci.org/shrikeh/ansible-jumpcloud)
+
+This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts the JumpCloud agent service as required.
 
 ## Requirements
 ------------
