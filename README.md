@@ -3,6 +3,7 @@
 
 [![Ansible Role](https://img.shields.io/ansible/role/4378.svg)](https://galaxy.ansible.com/detail#/role/4378)
 [![Build Status](https://travis-ci.org/shrikeh/ansible-jumpcloud.svg)](https://travis-ci.org/shrikeh/ansible-jumpcloud)
+[![GitHub Stars](https://img.shields.io/github/stars/shrikeh/ansible-jumpcloud.svg)][github]
 
 This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts the JumpCloud agent service as required.
 
@@ -81,7 +82,6 @@ Whether or not to use sudo during installation.
 ----------------
 
 ```YAML
-%YAML 1.2
 ---
 - hosts: production
   roles:
@@ -98,6 +98,7 @@ Whether or not to use sudo during installation.
 ------------------
 Contact me on Twitter @[barney_hanlon][twitter]
 
+[github]: https://github.com/shrikeh/ansible-jumpcloud "This role on Github"
 [curl]: https://galaxy.ansible.com/list#/roles/4384
 [jumpcloud]: https://jumpcloud.com "JumpCloud website"
 [jc-x-connect-key]: https://github.com/shrikeh/ansible-jumpcloud/blob/master/defaults/main.yml#L4 "Link to variable on master"
