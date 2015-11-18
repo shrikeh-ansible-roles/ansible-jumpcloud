@@ -1,0 +1,20 @@
+---
+language: python
+python: '2.7'
+sudo: required
+addons:
+  apt:
+    sources:
+      - python-apt
+      - python-pycurl
+install:
+  - pip install --upgrade pip
+  - pip install ansible
+env:
+  global:
+    - TEST_ANSIBLE_HOSTNAME: localhost
+      TEST_ANSIBLE_CONNECTION: local
+script:
+  - ansible-playbook --syntax-check -i test/inventory test/playbook.yml
+  - ansible-playbook -i test/inventory test/playbook.yml --connection=local --sudo -vvvv
+...
