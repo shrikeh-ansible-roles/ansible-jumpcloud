@@ -30,11 +30,13 @@
     owner:    "{{ jumpcloud_install_script_owner }}"
     group:    "{{ jumpcloud_install_script_group }}"
     mode:     "{{ jumpcloud_install_script_mode }}"
+  become: "{{ jumpcloud_use_sudo }}"
 
 - name:     Execute this via the shell
   command: "./{{ jumpcloud_temp_install_file }}"
   args:
     chdir: "{{ jumpcloud_temp_directory }}"
+  become: "{{ jumpcloud_use_sudo }}"
   notify:
     - restart JumpCloud
 ...
