@@ -21,7 +21,7 @@
     owner:  "{{ jumpcloud_install_script_owner }}"
     group:  "{{ jumpcloud_install_script_group }}"
     mode:   "{{ jumpcloud_temp_directory_mode }}"
-  sudo: "{{ jumpcloud_use_sudo }}"
+  become: "{{ jumpcloud_use_sudo }}"
 
 - name: Copy the string into position
   template:
