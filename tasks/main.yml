@@ -1,21 +1,22 @@
 ---
-- name:       Check if JumpCloud folder exists
+- name:       Looking for JumpCloud Agent Config exists
   stat:
-    path:     "{{ jumpcloud_directory }}"
-  register:   jumpcloud_directory_stat
+    path:     "{{ jumpcloud_agent_config }}"
+  register:   jumpcloud_agent_config_status
 
 - name:       Determine if JumpCloud is already installed
   set_fact:
-    jc_not_installed: "{{ not (jumpcloud_directory_stat.stat.isdir is defined and jumpcloud_directory_stat.stat.isdir) }}"
+    jumpcloud_not_installed: "{{ not (jumpcloud_agent_config_status.stat.isreg is defined and jumpcloud_agent_config_status.stat.isreg) }}"
 
 - name:       Install JumpCloud if required
   include:    install.yml
-  when:       jc_not_installed or jumpcloud_force_install
+  when:       not jumpcloud_not_installed or jumpcloud_force_install
 
-- name:       Determine if JumpCloud has been successfully installed
+- name:       Checking again the JumpCloud installation status
   set_fact:
-    jc_is_installed: "{{ jumpcloud_directory_stat.stat.isdir is defined and jumpcloud_directory_stat.stat.isdir }}"
+    jumpcloud_is_installed: "{{ jumpcloud_agent_config_status.stat.isreg is defined and jumpcloud_agent_config_status.stat.isreg }}"
 
-- name:       Tag System in JumpCloud
-  include:    tag_system.yml
-  when:       jc_is_installed
+- name:       Update System Attributes if JumpCloud is insalled
+  include:    update_system.yml
+  when:       jumpcloud_is_installed
+...

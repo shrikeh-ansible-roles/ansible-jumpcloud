@@ -13,11 +13,19 @@ This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts th
 
 ## Role Variables
 ------------
+#### [`jumpcloud_api_key`][jc-api-key]
+Default: none
+Used to modify the attribute of a System on JC portal.
+
+The API key as shown in the JumpCloud's API Settings.
+To be retrieved from JumpCloud portal by a JC Admin account
+
+To be stored in an Ansible Vault. It's very high-sensitivity Information.
 
 #### [`jumpcloud_x_connect_key`][jc-x-connect-key]
 Default: none
 
-The API key as displayed on the `Servers > Add` screen. **Mandatory**.
+The X_Connect key as displayed on the `Servers > Add` screen. **Mandatory**.
 
 #### [`jumpcloud_temp_directory`][jc-temp-directory]
 Default: `/tmp/jc_install`
@@ -116,14 +124,3 @@ Contact me on Twitter @[barney_hanlon][twitter]
 [jc-use-sudo]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L19 "Link to variable on master"
 [licence]: https://raw.githubusercontent.com/shrikeh/ansible-jumpcloud/master/LICENSE
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"
-
-## Other License and Author
-the templates/tag_system.j2 template is extracted from the chef cookbook `cjs226/jumpcloud` by Author: Clif Smith(clif@spanning.com)
-
-Copyright 2014, Spanning Cloud Apps, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.

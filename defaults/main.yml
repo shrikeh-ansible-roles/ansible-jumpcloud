@@ -10,6 +10,7 @@ jumpcloud_install_script_owner: 'root'
 jumpcloud_install_script_group: 'root'
 
 jumpcloud_directory: /opt/jc
+jumpcloud_agent_config: "{{ jumpcloud_directory }}/jcagent.conf"
 jumpcloud_x_connect_url: 'https://kickstart.jumpcloud.com/Kickstart'
 jumpcloud_api_url: 'https://console.jumpcloud.com/api'
 jumpcloud_template_path: 'install.j2'

@@ -1,0 +1,20 @@
+---
+- name: Get JumpCloud SystemKey
+  shell: grep -o -P '(?<=systemKey\":\")[a-zA-Z0-9]*' {{ jumpcloud_agent_config }}
+  register: jumpcloud_system_key
+
+- name: Update System Information
+  uri:
+    url: "{{ jumpcloud_api_url }}/systems/{{ jumpcloud_system_key.stdout }}"
+    headers:
+      Content-Type: 'application/json'
+      Accept:       'application/json'
+      x-api-key:    "{{ jumpcloud_api_key }}"
+    body_format:  json
+    body:
+      name:       "{\"tags\": [\"intapps-pipe-provision\"]"
+      #",\"displayName\": \"{{ jumpcloud_displayName }}\"}"
+    method: PUT
+    follow_redirects: all
+  delegate_to: localhost
+...

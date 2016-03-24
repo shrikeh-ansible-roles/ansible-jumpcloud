@@ -37,6 +37,4 @@
     chdir: "{{ jumpcloud_temp_directory }}"
   notify:
     - restart JumpCloud
-
-- meta: flush_handler
 ...
