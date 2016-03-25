@@ -86,6 +86,30 @@ Default: `no`
 
 Whether or not to use sudo during installation.
 
+#### [`jumpcloud_tags`][tags]
+The list of JC tags you want a host or a group of hosts to be part of
+  - 'tag_one'
+  - 'tag_two'
+
+#### [`jumpcloud_displayName`][displayName]
+Default: `{{ inventory_hostname }}``
+
+#### [`jumpcloud_allowPublicKeyAuthentication`][allowPublicKeyAuthentication]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowSshPasswordAuthentication`][allowSshPasswordAuthentication]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowSshRootLogin`][allowSshRootLogin]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowMultiFactorAuthentication`][allowMultiFactorAuthentication]
+Default: `'false'`
+This value must be contained in single quotes "\'"
+
 ## Example Playbook
 ----------------
 
@@ -94,6 +118,15 @@ Whether or not to use sudo during installation.
 - hosts: production
   roles:
      - { role: shrikeh.jumpcloud, jumpcloud_x_connect_key: 'abcdef012234343' }
+  vars:
+    jumpcloud_tags:
+      - 'tag_one'
+      - 'tag_two'
+    jumpcloud_displayName: "a new displayName"
+    jumpcloud_allowPublicKeyAuthentication: 'true'
+    jumpcloud_allowSshPasswordAuthentication: 'false'
+    jumpcloud_allowSshRootLogin: 'true'
+    jumpcloud_allowMultiFactorAuthentication: 'false'
 ...
 ```
 
