@@ -3,17 +3,26 @@
 jumpcloud_temp_directory: '/tmp/jc_install'
 jumpcloud_temp_directory_mode: '0700'
 jumpcloud_temp_install_file: 'install.sh'
+jumpcloud_temp_tag_system_file: 'tag_system.sh'
 jumpcloud_install_script_mode: '0700'
 
 jumpcloud_install_script_owner: 'root'
 jumpcloud_install_script_group: 'root'
 
 jumpcloud_directory: /opt/jc
+jumpcloud_agent_config: "{{ jumpcloud_directory }}/jcagent.conf"
 jumpcloud_x_connect_url: 'https://kickstart.jumpcloud.com/Kickstart'
-
+jumpcloud_api_url: 'https://console.jumpcloud.com/api'
 jumpcloud_template_path: 'install.j2'
 
 jumpcloud_force_install: no
 jumpcloud_agent_service: jcagent
 jumpcloud_use_sudo: no
+
+# defaults for new hosts
+jumpcloud_displayName: "{{ inventory_hostname }}"
+jumpcloud_allowPublicKeyAuthentication: 'true'
+jumpcloud_allowSshPasswordAuthentication: 'true'
+jumpcloud_allowSshRootLogin: 'true'
+jumpcloud_allowMultiFactorAuthentication: 'false'
 ...

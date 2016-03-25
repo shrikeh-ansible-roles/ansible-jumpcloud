@@ -13,11 +13,19 @@ This role idempotently installs the [JumpCloud][jumpcloud] agent and restarts th
 
 ## Role Variables
 ------------
+#### [`jumpcloud_api_key`][jc-api-key]
+Default: none
+Used to modify the attribute of a System on JC portal.
+
+The API key as shown in the JumpCloud's API Settings.
+To be retrieved from JumpCloud portal by a JC Admin account
+
+To be stored in an Ansible Vault. It's very high-sensitivity Information.
 
 #### [`jumpcloud_x_connect_key`][jc-x-connect-key]
 Default: none
 
-The API key as displayed on the `Servers > Add` screen. **Mandatory**.
+The X_Connect key as displayed on the `Servers > Add` screen. **Mandatory**.
 
 #### [`jumpcloud_temp_directory`][jc-temp-directory]
 Default: `/tmp/jc_install`
@@ -78,6 +86,30 @@ Default: `no`
 
 Whether or not to use sudo during installation.
 
+#### [`jumpcloud_tags`][tags]
+The list of JC tags you want a host or a group of hosts to be part of
+  - 'tag_one'
+  - 'tag_two'
+
+#### [`jumpcloud_displayName`][displayName]
+Default: `{{ inventory_hostname }}``
+
+#### [`jumpcloud_allowPublicKeyAuthentication`][allowPublicKeyAuthentication]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowSshPasswordAuthentication`][allowSshPasswordAuthentication]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowSshRootLogin`][allowSshRootLogin]
+Default: `'true'`
+This value must be contained in single quotes "\'"
+
+#### [`jumpcloud_allowMultiFactorAuthentication`][allowMultiFactorAuthentication]
+Default: `'false'`
+This value must be contained in single quotes "\'"
+
 ## Example Playbook
 ----------------
 
@@ -86,6 +118,15 @@ Whether or not to use sudo during installation.
 - hosts: production
   roles:
      - { role: shrikeh.jumpcloud, jumpcloud_x_connect_key: 'abcdef012234343' }
+  vars:
+    jumpcloud_tags:
+      - 'tag_one'
+      - 'tag_two'
+    jumpcloud_displayName: "a new displayName"
+    jumpcloud_allowPublicKeyAuthentication: 'true'
+    jumpcloud_allowSshPasswordAuthentication: 'false'
+    jumpcloud_allowSshRootLogin: 'true'
+    jumpcloud_allowMultiFactorAuthentication: 'false'
 ...
 ```
 
