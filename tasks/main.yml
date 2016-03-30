@@ -11,3 +11,7 @@
 - name:       Install JumpCloud if required
   include:    install.yml
   when:       jc_not_installed or jumpcloud_force_install
+
+- name:       Ensure jcagent is enabled and started
+  become: "{{ jumpcloud_use_sudo }}"
+  service: name=jcagent enabled=true state=running
