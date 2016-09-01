@@ -146,5 +146,8 @@ Contact me on Twitter @[barney_hanlon][twitter]
 [jc-force-install]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L17 "Link to variable on master"
 [jc-agent-service]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L18 "Link to variable on master"
 [jc-use-sudo]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L19 "Link to variable on master"
+[jc-add-tags]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L20 "Link to variable on master"
+[jc-api-key]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L21 "Link to variable on master"
+[jc-system-tags]: https://github.com/shrikeh-ansible-roles/ansible-jumpcloud/blob/master/defaults/main.yml#L22 "Link to variable on master"
 [licence]: https://raw.githubusercontent.com/shrikeh/ansible-jumpcloud/master/LICENSE
 [twitter]: https://twitter.com/barney_hanlon "Link to my Twitter page"
