@@ -15,3 +15,7 @@
 - name:       Ensure jcagent is enabled and started
   become: "{{ jumpcloud_use_sudo }}"
   service: name=jcagent enabled=true state=running
+
+- name:       Add system tags to jumpcloud
+  include:    tag.yml
+  when:       jumpcloud_add_tags
