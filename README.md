@@ -78,6 +78,23 @@ Default: `no`
 
 Whether or not to use sudo during installation.
 
+#### [`jumpcloud_add_tags`][jc-add-tags]
+Default: `no`
+
+Whether or not to add system tags to the jumpcloud system.
+Requires the ability to become root to retrieve the system key.
+Depends on jumpcloud_api_key and jumpcloud_system_tags.
+
+#### [`jumpcloud_api_key`][jc-api-key]
+Default: none
+
+API Key of a JumpCloud Administrator account authorized to add system tags.
+
+#### [`jumpcloud_system_tags`][jc-system-tags]
+Default: none
+
+List of tags to add to the system on JumpCloud.
+
 ## Example Playbook
 ----------------
 
@@ -86,6 +103,21 @@ Whether or not to use sudo during installation.
 - hosts: production
   roles:
      - { role: shrikeh.jumpcloud, jumpcloud_x_connect_key: 'abcdef012234343' }
+...
+```
+
+## Example Playbook with system tags
+----------------
+
+```YAML
+---
+- hosts: production
+  vars:
+    jumpcloud_system_tags:
+      - adminstaff
+      - common
+  roles:
+    - { role: shrikeh.jumpcloud, jumpcloud_x_connect_key: `abcdef01223434', jumpcloud_add_tags: yes, jumpcloud_use_sudo: yes }
 ...
 ```
 
