@@ -1,0 +1,22 @@
+---
+- name:     Wait for /opt/jc/jcagent.conf to exist
+  wait_for:
+    path:   /opt/jc/jcagent.conf
+
+- name:     Get systemKey from jcagent.conf
+  shell:    "cat /opt/jc/jcagent.conf | python -c 'import sys, json; print json.load(sys.stdin)[sys.argv[1]]' systemKey"
+  register: jumpcloud_system_key
+  become:   "{{ jumpcloud_use_sudo }}"
+
+- name: Use JumpCloud API to tag this system.
+  uri:
+    url:    https://console.jumpcloud.com/api/systems/{{ jumpcloud_system_key.stdout | mandatory }}
+    method: PUT
+    body:  '{ "tags" : {{ jumpcloud_system_tags | to_json }} }'
+    body_format: json
+    body_type: json
+    return_content: yes
+    HEADER_Content-Type:  "application/json"
+    HEADER_Accept:        "application/json"
+    HEADER_x-api-key:     "{{ jumpcloud_api_key | mandatory }}"
+
