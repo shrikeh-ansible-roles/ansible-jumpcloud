@@ -14,4 +14,4 @@
 
 - name:       Ensure jcagent is enabled and started
   become: "{{ jumpcloud_use_sudo }}"
-  service: name=jcagent enabled=true state=running
+  service: name=jcagent enabled=true state=started
