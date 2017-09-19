@@ -2,7 +2,8 @@
 - name:     Get the install script
   uri:
     url: "{{ jumpcloud_x_connect_url | mandatory }}"
-    HEADER_x-connect-key: "{{ jumpcloud_x_connect_key | mandatory }}"
+    headers:
+      x-connect-key: "{{ jumpcloud_x_connect_key | mandatory }}"
     return_content: yes
   delegate_to: 127.0.0.1
   run_once: true
